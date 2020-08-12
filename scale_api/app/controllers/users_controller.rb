@@ -58,7 +58,7 @@ class UsersController < ApplicationController
 
   def payload(id, username)
     {
-      exp: (Time.now + 5.minutes).to_i,
+      exp: (Time.now + 30.minutes).to_i,
       iat: Time.now.to_i,
       iss: ENV["JWT_ISSUER"],
       user: {
