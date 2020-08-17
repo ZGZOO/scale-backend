@@ -43,4 +43,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'jwt'
 gem 'dotenv-rails'
 
-gem 'rack', '~> 2.0.8'
+# gem 'rack', '~> 2.0.8'
