@@ -54,12 +54,12 @@ class UsersController < ApplicationController
   private
 
   def create_token(id, username)
-    JWT.encode(payload(id, username), ENV["JWT_SECRET"], "HS256")
+    JWT.encode(payload(id, username), ENV["SECRET_KEY_BASE"], "HS256")
   end
 
   def payload(id, username)
     {
-      exp: (Time.now + 1.minutes).to_i,
+      exp: (Time.now + 30.minutes).to_i,
       iat: Time.now.to_i,
       iss: ENV["JWT_ISSUER"],
       user: {

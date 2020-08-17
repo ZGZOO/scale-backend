@@ -18,7 +18,7 @@ class ApplicationController < ActionController::API
   def decode_token(token_input)
     # puts "DECODE TOKEN, token input: #{token_input}"
     # puts token = JWT.decode(token_input, ENV["JWT_SECRET"], true)
-    JWT.decode(token_input, ENV["JWT_SECRET"], true)
+    JWT.decode(token_input, ENV["SECRET_KEY_BASE"], true)
   rescue
     render json: { status: 401, message: "Unauthorized" }
   end
