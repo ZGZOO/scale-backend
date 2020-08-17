@@ -17,12 +17,12 @@ class UsersController < ApplicationController
   def index
     @users = User.all
 
-    render json: @users
+    render json: @users.to_json(include: :entries)
   end
 
   # GET /users/1
   def show
-    render json: get_current_user
+    render json: get_current_user.to_json(include: :entries)
   end
 
   # POST /users
@@ -59,7 +59,7 @@ class UsersController < ApplicationController
 
   def payload(id, username)
     {
-      exp: (Time.now + 30.minutes).to_i,
+      exp: (Time.now + 60.minutes).to_i,
       iat: Time.now.to_i,
       iss: ENV["JWT_ISSUER"],
       user: {
