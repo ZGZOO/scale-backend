@@ -2124,3 +2124,1051 @@ Processing by UsersController#show as */*
 Completed 200 OK in 60ms (Views: 0.1ms | ActiveRecord: 31.6ms | Allocations: 3907)
 
 
+Started POST "/users/login" for ::1 at 2020-08-17 14:12:06 -0700
+  [1m[35m (41.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"user"=>{"username"=>"Jenny", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Jenny"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `login'
+Completed 200 OK in 346ms (Views: 0.4ms | ActiveRecord: 16.8ms | Allocations: 5675)
+
+
+Started GET "/users" for ::1 at 2020-08-17 14:12:43 -0700
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{"username"=>"Jenny", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (10.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (0.4ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (0.5ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (0.5ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (0.4ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (3.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 8]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+Completed 200 OK in 277ms (Views: 0.1ms | ActiveRecord: 150.2ms | Allocations: 14764)
+
+
+Started GET "/users/5" for ::1 at 2020-08-17 14:12:52 -0700
+Processing by UsersController#show as */*
+  Parameters: {"user"=>{"username"=>"Jenny", "password"=>"[FILTERED]"}, "id"=>"5"}
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in `set_user'
+  [1m[36mUser Load (24.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[36mEntry Load (55.4ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:25:in `show'
+Completed 200 OK in 156ms (Views: 0.5ms | ActiveRecord: 83.2ms | Allocations: 4044)
+
+
+Started GET "/users/4" for ::1 at 2020-08-17 14:12:55 -0700
+Processing by UsersController#show as */*
+  Parameters: {"user"=>{"username"=>"Jenny", "password"=>"[FILTERED]"}, "id"=>"4"}
+  [1m[36mUser Load (15.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in `set_user'
+Completed 404 Not Found in 25ms (ActiveRecord: 15.5ms | Allocations: 649)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=4):
+  
+app/controllers/users_controller.rb:74:in `set_user'
+Started GET "/users/3" for ::1 at 2020-08-17 14:13:01 -0700
+Processing by UsersController#show as */*
+  Parameters: {"user"=>{"username"=>"Jenny", "password"=>"[FILTERED]"}, "id"=>"3"}
+  [1m[36mUser Load (56.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in `set_user'
+Completed 404 Not Found in 58ms (ActiveRecord: 56.7ms | Allocations: 629)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=3):
+  
+app/controllers/users_controller.rb:74:in `set_user'
+Started GET "/users/5" for ::1 at 2020-08-17 14:13:05 -0700
+Processing by UsersController#show as */*
+  Parameters: {"user"=>{"username"=>"Jenny", "password"=>"[FILTERED]"}, "id"=>"5"}
+  [1m[36mUser Load (46.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in `set_user'
+  [1m[36mUser Load (62.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[36mEntry Load (26.6ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:25:in `show'
+Completed 200 OK in 160ms (Views: 0.1ms | ActiveRecord: 136.0ms | Allocations: 3925)
+
+
+Started POST "/users" for ::1 at 2020-08-17 14:15:30 -0700
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"username"=>"Alex", "password"=>"[FILTERED]"}}
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:33:in `create'
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "Alex"], ["password_digest", "$2a$12$xFqHu5XLD8p8qa8zKVDlRunvmJh1lonDSSihv/MffHvSnY.7iTCqy"], ["created_at", "2020-08-17 21:15:30.889259"], ["updated_at", "2020-08-17 21:15:30.889259"]]
+  ↳ app/controllers/users_controller.rb:33:in `create'
+  [1m[35m (5.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:33:in `create'
+Completed 201 Created in 339ms (Views: 0.9ms | ActiveRecord: 7.2ms | Allocations: 3021)
+
+
+Started GET "/users" for ::1 at 2020-08-17 14:16:24 -0700
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{"username"=>"Alex", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (6.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (2.6ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (4.1ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (6.0ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (1.1ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (1.2ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 8]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (1.5ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+Completed 200 OK in 77ms (Views: 0.2ms | ActiveRecord: 23.5ms | Allocations: 8026)
+
+
+Started GET "/users/5" for ::1 at 2020-08-17 14:16:45 -0700
+Processing by UsersController#show as */*
+  Parameters: {"user"=>{"username"=>"Alex", "password"=>"[FILTERED]"}, "id"=>"5"}
+  [1m[36mUser Load (14.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in `set_user'
+  [1m[36mUser Load (11.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[36mEntry Load (13.0ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:25:in `show'
+Completed 200 OK in 62ms (Views: 0.2ms | ActiveRecord: 39.1ms | Allocations: 3907)
+
+
+Started GET "/users/4" for ::1 at 2020-08-17 14:16:50 -0700
+Processing by UsersController#show as */*
+  Parameters: {"user"=>{"username"=>"Alex", "password"=>"[FILTERED]"}, "id"=>"4"}
+  [1m[36mUser Load (14.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in `set_user'
+Completed 404 Not Found in 22ms (ActiveRecord: 14.1ms | Allocations: 630)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=4):
+  
+app/controllers/users_controller.rb:74:in `set_user'
+Started GET "/users/3" for ::1 at 2020-08-17 14:16:53 -0700
+Processing by UsersController#show as */*
+  Parameters: {"user"=>{"username"=>"Alex", "password"=>"[FILTERED]"}, "id"=>"3"}
+  [1m[36mUser Load (8.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in `set_user'
+Completed 404 Not Found in 36ms (ActiveRecord: 8.3ms | Allocations: 630)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=3):
+  
+app/controllers/users_controller.rb:74:in `set_user'
+Started GET "/users/9" for ::1 at 2020-08-17 14:16:55 -0700
+Processing by UsersController#show as */*
+  Parameters: {"user"=>{"username"=>"Alex", "password"=>"[FILTERED]"}, "id"=>"9"}
+  [1m[36mUser Load (7.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in `set_user'
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+Filter chain halted as :authorize_user rendered or redirected
+Completed 200 OK in 16ms (Views: 0.1ms | ActiveRecord: 10.1ms | Allocations: 2055)
+
+
+Started GET "/users/5" for ::1 at 2020-08-17 14:16:59 -0700
+Processing by UsersController#show as */*
+  Parameters: {"user"=>{"username"=>"Alex", "password"=>"[FILTERED]"}, "id"=>"5"}
+  [1m[36mUser Load (11.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in `set_user'
+  [1m[36mUser Load (12.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[36mEntry Load (14.9ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:25:in `show'
+Completed 200 OK in 70ms (Views: 0.4ms | ActiveRecord: 39.1ms | Allocations: 3907)
+
+
+Started POST "/users/login" for ::1 at 2020-08-17 14:32:35 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"Jenny", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Jenny"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `login'
+Completed 200 OK in 241ms (Views: 0.3ms | ActiveRecord: 1.0ms | Allocations: 1015)
+
+
+Started POST "/users/login" for ::1 at 2020-08-17 14:33:21 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"Jenny", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Jenny"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `login'
+Completed 200 OK in 244ms (Views: 0.3ms | ActiveRecord: 0.8ms | Allocations: 915)
+
+
+Started GET "/users/undefined" for ::1 at 2020-08-17 14:33:21 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"undefined"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in `set_user'
+Completed 404 Not Found in 6ms (ActiveRecord: 1.5ms | Allocations: 629)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=undefined):
+  
+app/controllers/users_controller.rb:74:in `set_user'
+Started POST "/users/login" for ::1 at 2020-08-17 14:33:57 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"Jenny", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (5.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Jenny"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `login'
+Completed 200 OK in 251ms (Views: 0.4ms | ActiveRecord: 5.6ms | Allocations: 951)
+
+
+Started GET "/users/5" for ::1 at 2020-08-17 14:33:57 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in `set_user'
+Filter chain halted as :authenticate_token rendered or redirected
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 683)
+
+
+Started POST "/users/login" for ::1 at 2020-08-17 14:36:35 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"Jenny", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Jenny"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `login'
+Completed 200 OK in 241ms (Views: 0.3ms | ActiveRecord: 1.5ms | Allocations: 913)
+
+
+Started GET "/users/undefined" for ::1 at 2020-08-17 14:36:35 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"undefined"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in `set_user'
+Completed 404 Not Found in 4ms (ActiveRecord: 1.1ms | Allocations: 628)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=undefined):
+  
+app/controllers/users_controller.rb:74:in `set_user'
+Started POST "/users/login" for ::1 at 2020-08-17 14:37:11 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"Jenny", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Jenny"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `login'
+Completed 200 OK in 264ms (Views: 1.0ms | ActiveRecord: 2.7ms | Allocations: 917)
+
+
+Started GET "/users/undefined" for ::1 at 2020-08-17 14:37:12 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"undefined"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in `set_user'
+Completed 404 Not Found in 4ms (ActiveRecord: 0.7ms | Allocations: 625)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=undefined):
+  
+app/controllers/users_controller.rb:74:in `set_user'
+Started POST "/users/login" for ::1 at 2020-08-17 14:37:39 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"Jenny", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Jenny"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `login'
+Completed 200 OK in 245ms (Views: 0.4ms | ActiveRecord: 1.8ms | Allocations: 913)
+
+
+Started GET "/users/undefined" for ::1 at 2020-08-17 14:37:39 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"undefined"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in `set_user'
+Completed 404 Not Found in 4ms (ActiveRecord: 0.7ms | Allocations: 625)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=undefined):
+  
+app/controllers/users_controller.rb:74:in `set_user'
+Started POST "/users/login" for ::1 at 2020-08-17 14:39:34 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"Jenny", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Jenny"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `login'
+Completed 200 OK in 242ms (Views: 0.5ms | ActiveRecord: 1.7ms | Allocations: 913)
+
+
+Started POST "/users/5/entries" for ::1 at 2020-08-17 14:45:47 -0700
+Processing by EntriesController#create as */*
+  Parameters: {"entry"=>{"weight"=>"120.32", "unit"=>"lb", "entry_date"=>"2009-12-05"}, "user_id"=>"5"}
+  [1m[35m (42.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/entries_controller.rb:20:in `create'
+  [1m[36mUser Load (5.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:20:in `create'
+  [1m[36mEntry Create (66.8ms)[0m  [1m[32mINSERT INTO "entries" ("weight", "unit", "entry_date", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["weight", "120.32"], ["unit", "lb"], ["entry_date", "2009-12-05"], ["user_id", 5], ["created_at", "2020-08-17 21:45:49.731059"], ["updated_at", "2020-08-17 21:45:49.731059"]]
+  ↳ app/controllers/entries_controller.rb:20:in `create'
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/entries_controller.rb:20:in `create'
+Completed 500 Internal Server Error in 1357ms (ActiveRecord: 328.7ms | Allocations: 34477)
+
+
+  
+NoMethodError (undefined method `entry_url' for #<EntriesController:0x00007ff6adab3208>):
+  
+app/controllers/entries_controller.rb:21:in `create'
+Started GET "/users/5" for ::1 at 2020-08-17 14:46:30 -0700
+Processing by UsersController#show as */*
+  Parameters: {"entry"=>{"weight"=>"120.32", "unit"=>"lb", "entry_date"=>"2009-12-05"}, "id"=>"5"}
+  [1m[36mUser Load (127.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in `set_user'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[36mEntry Load (42.8ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:25:in `show'
+Completed 200 OK in 214ms (Views: 0.2ms | ActiveRecord: 170.6ms | Allocations: 4128)
+
+
+Started POST "/users/5/entries" for ::1 at 2020-08-17 14:47:36 -0700
+Processing by EntriesController#create as */*
+  Parameters: {"entry"=>{"weight"=>"120.32", "unit"=>"lb", "entry_date"=>"2009-12-06"}, "user_id"=>"5"}
+  [1m[35m (213.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/entries_controller.rb:20:in `create'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:20:in `create'
+  [1m[36mEntry Create (1.7ms)[0m  [1m[32mINSERT INTO "entries" ("weight", "unit", "entry_date", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["weight", "120.32"], ["unit", "lb"], ["entry_date", "2009-12-06"], ["user_id", 5], ["created_at", "2020-08-17 21:47:40.917260"], ["updated_at", "2020-08-17 21:47:40.917260"]]
+  ↳ app/controllers/entries_controller.rb:20:in `create'
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/entries_controller.rb:20:in `create'
+Completed 201 Created in 2720ms (Views: 0.6ms | ActiveRecord: 2602.9ms | Allocations: 11829)
+
+
+Started GET "/entries/1" for ::1 at 2020-08-17 14:49:54 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/entries/1"):
+  
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.9) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.9) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users/5/entries/1" for ::1 at 2020-08-17 14:50:08 -0700
+Processing by EntriesController#show as */*
+  Parameters: {"entry"=>{"weight"=>"120.32", "unit"=>"lb", "entry_date"=>"2009-12-06"}, "user_id"=>"5", "id"=>"1"}
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.0ms | Allocations: 73)
+
+
+Started GET "/users/5" for ::1 at 2020-08-17 14:51:05 -0700
+Processing by UsersController#show as */*
+  Parameters: {"entry"=>{"weight"=>"120.32", "unit"=>"lb", "entry_date"=>"2009-12-06"}, "id"=>"5"}
+  [1m[36mUser Load (51.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in `set_user'
+  [1m[36mUser Load (10.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[36mEntry Load (11.2ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:25:in `show'
+Completed 200 OK in 150ms (Views: 0.3ms | ActiveRecord: 73.5ms | Allocations: 4601)
+
+
+Started GET "/users/5/entries/2" for ::1 at 2020-08-17 14:51:17 -0700
+Processing by EntriesController#show as */*
+  Parameters: {"entry"=>{"weight"=>"120.32", "unit"=>"lb", "entry_date"=>"2009-12-06"}, "user_id"=>"5", "id"=>"2"}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 72)
+
+
+Started GET "/users/5/entries" for ::1 at 2020-08-17 14:51:28 -0700
+Processing by EntriesController#index as */*
+  Parameters: {"entry"=>{"weight"=>"120.32", "unit"=>"lb", "entry_date"=>"2009-12-06"}, "user_id"=>"5"}
+  [1m[36mEntry Load (350.4ms)[0m  [1m[34mSELECT "entries".* FROM "entries"[0m
+  ↳ app/controllers/entries_controller.rb:7:in `index'
+Completed 200 OK in 370ms (Views: 17.9ms | ActiveRecord: 350.4ms | Allocations: 1619)
+
+
+Started GET "/users/5/entries/1" for ::1 at 2020-08-17 14:53:47 -0700
+Processing by EntriesController#show as */*
+  Parameters: {"entry"=>{"weight"=>"120.32", "unit"=>"lb", "entry_date"=>"2009-12-06"}, "user_id"=>"5", "id"=>"1"}
+  [1m[36mEntry Load (81.2ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:46:in `set_entry'
+Completed 200 OK in 347ms (Views: 0.5ms | ActiveRecord: 182.2ms | Allocations: 5076)
+
+
+Started GET "/entries/1" for ::1 at 2020-08-17 14:54:02 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/entries/1"):
+  
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.9) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.9) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/users/login" for ::1 at 2020-08-17 22:21:17 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"Jenny", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Jenny"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `login'
+Completed 200 OK in 263ms (Views: 0.2ms | ActiveRecord: 10.0ms | Allocations: 3737)
+
+
+Started POST "/users/login" for ::1 at 2020-08-17 22:21:22 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"Jenny", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Jenny"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `login'
+Completed 200 OK in 248ms (Views: 1.0ms | ActiveRecord: 1.4ms | Allocations: 919)
+
+
+Started POST "/users/login" for ::1 at 2020-08-18 08:49:32 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"Jenny", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Jenny"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `login'
+Completed 200 OK in 329ms (Views: 0.3ms | ActiveRecord: 2.6ms | Allocations: 1013)
+
+
+Started POST "/users/login" for ::1 at 2020-08-18 09:04:45 -0700
+Processing by UsersController#login as HTML
+  Parameters: {"user"=>{"username"=>"Jenny", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (22.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Jenny"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `login'
+Completed 200 OK in 412ms (Views: 0.8ms | ActiveRecord: 23.4ms | Allocations: 1013)
+
+
+Started GET "/users/5/entries/1" for ::1 at 2020-08-18 09:26:39 -0700
+Processing by EntriesController#show as */*
+  Parameters: {"entry"=>{"weight"=>"120.32", "unit"=>"lb", "entry_date"=>"2009-12-07"}, "user_id"=>"5", "id"=>"1"}
+  [1m[36mEntry Load (1.0ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:46:in `set_entry'
+Completed 200 OK in 7ms (Views: 0.7ms | ActiveRecord: 1.2ms | Allocations: 928)
+
+
+Started GET "/users" for ::1 at 2020-08-18 09:26:51 -0700
+Processing by UsersController#index as */*
+  Parameters: {"entry"=>{"weight"=>"120.32", "unit"=>"lb", "entry_date"=>"2009-12-07"}}
+Filter chain halted as :authenticate_token rendered or redirected
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 219)
+
+
+Started POST "/users/login" for ::1 at 2020-08-18 10:01:23 -0700
+  [1m[35m (44.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"user"=>{"username"=>"Jenny", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Jenny"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `login'
+Completed 200 OK in 503ms (Views: 5.4ms | ActiveRecord: 41.2ms | Allocations: 5871)
+
+
+Started GET "/users/5/entries" for ::1 at 2020-08-18 10:02:17 -0700
+Processing by EntriesController#index as */*
+  Parameters: {"user"=>{"username"=>"Jenny", "password"=>"[FILTERED]"}, "user_id"=>"5"}
+  [1m[36mEntry Load (5.6ms)[0m  [1m[34mSELECT "entries".* FROM "entries"[0m
+  ↳ app/controllers/entries_controller.rb:8:in `index'
+Completed 200 OK in 201ms (Views: 45.1ms | ActiveRecord: 148.1ms | Allocations: 6401)
+
+
+Started DELETE "/users/5/entries/6" for ::1 at 2020-08-18 10:02:39 -0700
+Processing by EntriesController#destroy as */*
+  Parameters: {"user"=>{"username"=>"Jenny", "password"=>"[FILTERED]"}, "user_id"=>"5", "id"=>"6"}
+  [1m[36mEntry Load (1.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:46:in `set_entry'
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/entries_controller.rb:39:in `destroy'
+  [1m[36mEntry Destroy (5.0ms)[0m  [1m[31mDELETE FROM "entries" WHERE "entries"."id" = $1[0m  [["id", 6]]
+  ↳ app/controllers/entries_controller.rb:39:in `destroy'
+  [1m[35m (37.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/entries_controller.rb:39:in `destroy'
+Completed 204 No Content in 58ms (ActiveRecord: 44.6ms | Allocations: 2599)
+
+
+Started GET "/users/5/entries" for ::1 at 2020-08-18 10:02:47 -0700
+Processing by EntriesController#index as */*
+  Parameters: {"user"=>{"username"=>"Jenny", "password"=>"[FILTERED]"}, "user_id"=>"5"}
+  [1m[36mEntry Load (54.1ms)[0m  [1m[34mSELECT "entries".* FROM "entries"[0m
+  ↳ app/controllers/entries_controller.rb:8:in `index'
+Completed 200 OK in 62ms (Views: 7.3ms | ActiveRecord: 54.1ms | Allocations: 1506)
+
+
+Started PUT "/users/5/entries/5" for ::1 at 2020-08-18 10:03:55 -0700
+Processing by EntriesController#update as */*
+  Parameters: {"entry"=>{"weight"=>"130.32", "unit"=>"kg", "entry_date"=>"2010-12-05"}, "user_id"=>"5", "id"=>"5"}
+  [1m[36mEntry Load (52.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:46:in `set_entry'
+  [1m[35m (6.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/entries_controller.rb:30:in `update'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:30:in `update'
+  [1m[36mEntry Update (44.1ms)[0m  [1m[33mUPDATE "entries" SET "weight" = $1, "unit" = $2, "entry_date" = $3, "updated_at" = $4 WHERE "entries"."id" = $5[0m  [["weight", "130.32"], ["unit", "kg"], ["entry_date", "2010-12-05"], ["updated_at", "2020-08-18 17:03:55.367272"], ["id", 5]]
+  ↳ app/controllers/entries_controller.rb:30:in `update'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/entries_controller.rb:30:in `update'
+Completed 200 OK in 174ms (Views: 0.8ms | ActiveRecord: 104.0ms | Allocations: 7145)
+
+
+Started GET "/users/5/entries" for ::1 at 2020-08-18 10:04:10 -0700
+Processing by EntriesController#index as */*
+  Parameters: {"entry"=>{"weight"=>"130.32", "unit"=>"kg", "entry_date"=>"2010-12-05"}, "user_id"=>"5"}
+  [1m[36mEntry Load (0.6ms)[0m  [1m[34mSELECT "entries".* FROM "entries"[0m
+  ↳ app/controllers/entries_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.6ms | Allocations: 1488)
+
+
+Started POST "/users" for ::1 at 2020-08-18 10:05:46 -0700
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"username"=>"Jenny", "password"=>"[FILTERED]"}}
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:33:in `create'
+  [1m[36mUser Exists? (11.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Jenny"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:33:in `create'
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:33:in `create'
+Completed 422 Unprocessable Entity in 536ms (Views: 0.4ms | ActiveRecord: 13.6ms | Allocations: 4356)
+
+
+Started POST "/users" for ::1 at 2020-08-18 10:06:21 -0700
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"username"=>"jenny", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:33:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jenny"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:33:in `create'
+  [1m[36mUser Create (12.0ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "jenny"], ["password_digest", "$2a$12$hKPYh4/EcmHRNc0446LVhehjOkXeuGfj8e7sJslsYXXfe/Hx4GL/q"], ["created_at", "2020-08-18 17:06:22.303319"], ["updated_at", "2020-08-18 17:06:22.303319"]]
+  ↳ app/controllers/users_controller.rb:33:in `create'
+  [1m[35m (49.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:33:in `create'
+Completed 201 Created in 474ms (Views: 5.2ms | ActiveRecord: 62.4ms | Allocations: 3904)
+
+
+Started GET "/users/5" for ::1 at 2020-08-18 10:07:10 -0700
+Processing by UsersController#show as */*
+  Parameters: {"user"=>{"username"=>"jenny", "password"=>"[FILTERED]"}, "id"=>"5"}
+  [1m[36mUser Load (16.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in `set_user'
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[36mCACHE User Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[36mEntry Load (1.7ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:25:in `show'
+Completed 200 OK in 67ms (Views: 0.1ms | ActiveRecord: 21.1ms | Allocations: 6184)
+
+
+Started POST "/users/5" for ::1 at 2020-08-18 10:07:33 -0700
+  
+ActionController::RoutingError (No route matches [POST] "/users/5"):
+  
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.9) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.9) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started PUT "/users/5" for ::1 at 2020-08-18 10:07:51 -0700
+Processing by UsersController#update as */*
+  Parameters: {"user"=>{"username"=>"Jennyyy"}, "text/plain"=>[""], "id"=>"5"}
+  [1m[36mUser Load (7.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in `set_user'
+  [1m[36mUser Load (9.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:42:in `update'
+  [1m[36mUser Exists? (9.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "Jennyyy"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:42:in `update'
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:42:in `update'
+Completed 422 Unprocessable Entity in 66ms (Views: 0.8ms | ActiveRecord: 28.9ms | Allocations: 5234)
+
+
+Started PUT "/users/5" for ::1 at 2020-08-18 10:10:25 -0700
+Processing by UsersController#update as */*
+  Parameters: {"user"=>{"username"=>"Jennyyy", "password"=>"[FILTERED]"}, "id"=>"5"}
+  [1m[36mUser Load (13.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in `set_user'
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:42:in `update'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "Jennyyy"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:42:in `update'
+  [1m[36mUser Update (0.9ms)[0m  [1m[33mUPDATE "users" SET "username" = $1, "password_digest" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["username", "Jennyyy"], ["password_digest", "$2a$12$y4vazjK/OX9v6czxo3X0q.k0ISvDslXe7Fou4MASfsjnOvgV1lCoy"], ["updated_at", "2020-08-18 17:10:26.303041"], ["id", 5]]
+  ↳ app/controllers/users_controller.rb:42:in `update'
+  [1m[35m (10.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:42:in `update'
+Completed 200 OK in 340ms (Views: 0.3ms | ActiveRecord: 27.9ms | Allocations: 5822)
+
+
+Started GET "/users" for ::1 at 2020-08-18 10:11:52 -0700
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{"username"=>"Jennyyy", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (13.4ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (6.6ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (16.8ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (1.6ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (2.1ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 8]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (1.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (7.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 10]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (8.9ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+Completed 200 OK in 100ms (Views: 0.1ms | ActiveRecord: 61.6ms | Allocations: 9126)
+
+
+Started DELETE "/users/9" for ::1 at 2020-08-18 10:12:18 -0700
+Processing by UsersController#destroy as */*
+  Parameters: {"user"=>{"username"=>"Jennyyy", "password"=>"[FILTERED]"}, "id"=>"9"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in `set_user'
+  [1m[36mUser Load (24.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+Filter chain halted as :authorize_user rendered or redirected
+Completed 200 OK in 33ms (Views: 0.2ms | ActiveRecord: 24.5ms | Allocations: 2059)
+
+
+Started GET "/users/9" for ::1 at 2020-08-18 10:12:40 -0700
+Processing by UsersController#show as */*
+  Parameters: {"user"=>{"username"=>"Jennyyy", "password"=>"[FILTERED]"}, "id"=>"9"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in `set_user'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+Filter chain halted as :authorize_user rendered or redirected
+Completed 200 OK in 25ms (Views: 0.9ms | ActiveRecord: 1.4ms | Allocations: 2052)
+
+
+Started GET "/users" for ::1 at 2020-08-18 10:12:54 -0700
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{"username"=>"Jennyyy", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (0.6ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (1.1ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (2.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (0.4ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (0.6ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 8]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 10]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+Completed 200 OK in 41ms (Views: 0.1ms | ActiveRecord: 10.3ms | Allocations: 9126)
+
+
+Started GET "/users/6" for ::1 at 2020-08-18 10:13:23 -0700
+Processing by UsersController#show as */*
+  Parameters: {"user"=>{"username"=>"Jennyyy", "password"=>"[FILTERED]"}, "id"=>"6"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in `set_user'
+  [1m[36mUser Load (7.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+Filter chain halted as :authorize_user rendered or redirected
+Completed 200 OK in 20ms (Views: 0.1ms | ActiveRecord: 9.1ms | Allocations: 2052)
+
+
+Started POST "/users/login" for ::1 at 2020-08-18 10:13:36 -0700
+Processing by UsersController#login as */*
+  Parameters: {"user"=>{"username"=>"Julia", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (11.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Julia"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `login'
+Completed 200 OK in 393ms (Views: 0.9ms | ActiveRecord: 11.1ms | Allocations: 916)
+
+
+Started DELETE "/users/6" for ::1 at 2020-08-18 10:14:01 -0700
+Processing by UsersController#destroy as */*
+  Parameters: {"user"=>{"username"=>"Julia", "password"=>"[FILTERED]"}, "id"=>"6"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in `set_user'
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:51:in `destroy'
+  [1m[36mUser Destroy (1.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 6]]
+  ↳ app/controllers/users_controller.rb:51:in `destroy'
+  [1m[35m (41.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:51:in `destroy'
+Completed 204 No Content in 101ms (ActiveRecord: 45.8ms | Allocations: 3796)
+
+
+Started GET "/users" for ::1 at 2020-08-18 10:14:19 -0700
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{"username"=>"Julia", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (1.7ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (6.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (0.9ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (0.2ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 8]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (0.2ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (0.8ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 10]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (1.0ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+Completed 200 OK in 62ms (Views: 0.1ms | ActiveRecord: 14.8ms | Allocations: 8172)
+
+
+Started GET "/users/10" for ::1 at 2020-08-18 10:14:37 -0700
+Processing by UsersController#show as */*
+  Parameters: {"user"=>{"username"=>"Julia", "password"=>"[FILTERED]"}, "id"=>"10"}
+  [1m[36mUser Load (7.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in `set_user'
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+Completed 404 Not Found in 31ms (ActiveRecord: 9.7ms | Allocations: 1434)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=6):
+  
+app/controllers/application_controller.rb:29:in `get_current_user'
+app/controllers/application_controller.rb:34:in `authorize_user'
+Started POST "/users/login" for ::1 at 2020-08-18 10:14:51 -0700
+Processing by UsersController#login as */*
+  Parameters: {"user"=>{"username"=>"jenny", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jenny"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `login'
+Completed 200 OK in 364ms (Views: 3.7ms | ActiveRecord: 0.4ms | Allocations: 919)
+
+
+Started DELETE "/users/10" for ::1 at 2020-08-18 10:15:15 -0700
+Processing by UsersController#destroy as */*
+  Parameters: {"user"=>{"username"=>"jenny", "password"=>"[FILTERED]"}, "id"=>"10"}
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in `set_user'
+  [1m[36mUser Load (71.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[35m (46.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:51:in `destroy'
+  [1m[36mUser Destroy (9.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 10]]
+  ↳ app/controllers/users_controller.rb:51:in `destroy'
+  [1m[35m (15.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:51:in `destroy'
+Completed 204 No Content in 169ms (ActiveRecord: 145.4ms | Allocations: 3796)
+
+
+Started GET "/users" for ::1 at 2020-08-18 10:15:22 -0700
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{"username"=>"jenny", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (9.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (10.1ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (2.2ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (11.5ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (10.2ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 8]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (3.6ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (5.5ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+Completed 200 OK in 86ms (Views: 0.1ms | ActiveRecord: 52.8ms | Allocations: 7218)
+
+
+Started POST "/users/login" for ::1 at 2020-08-18 10:15:59 -0700
+Processing by UsersController#login as */*
+  Parameters: {"user"=>{"username"=>"Ben", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (39.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Ben"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `login'
+Completed 200 OK in 765ms (Views: 3.5ms | ActiveRecord: 39.9ms | Allocations: 915)
+
+
+Started DELETE "/users/7" for ::1 at 2020-08-18 10:16:18 -0700
+Processing by UsersController#destroy as */*
+  Parameters: {"user"=>{"username"=>"Ben", "password"=>"[FILTERED]"}, "id"=>"7"}
+  [1m[36mUser Load (10.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in `set_user'
+  [1m[36mUser Load (8.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:51:in `destroy'
+  [1m[36mUser Destroy (0.8ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 7]]
+  ↳ app/controllers/users_controller.rb:51:in `destroy'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:51:in `destroy'
+Completed 204 No Content in 41ms (ActiveRecord: 20.6ms | Allocations: 3796)
+
+
+Started GET "/users" for ::1 at 2020-08-18 10:16:25 -0700
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{"username"=>"Ben", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (6.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (8.4ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (0.5ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (1.6ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 8]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (0.7ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+Completed 200 OK in 43ms (Views: 0.1ms | ActiveRecord: 17.6ms | Allocations: 6265)
+
+
+Started POST "/users/login" for ::1 at 2020-08-18 10:16:56 -0700
+Processing by UsersController#login as */*
+  Parameters: {"user"=>{"username"=>"Gollum", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (11.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Gollum"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `login'
+Completed 200 OK in 400ms (Views: 0.3ms | ActiveRecord: 11.3ms | Allocations: 915)
+
+
+Started DELETE "/users/2" for ::1 at 2020-08-18 10:17:12 -0700
+Processing by UsersController#destroy as */*
+  Parameters: {"user"=>{"username"=>"Gollum", "password"=>"[FILTERED]"}, "id"=>"2"}
+  [1m[36mUser Load (18.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in `set_user'
+  [1m[36mUser Load (10.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[35m (28.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:51:in `destroy'
+  [1m[36mUser Destroy (1.7ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/users_controller.rb:51:in `destroy'
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:51:in `destroy'
+Completed 204 No Content in 84ms (ActiveRecord: 60.9ms | Allocations: 3796)
+
+
+Started GET "/users" for ::1 at 2020-08-18 10:17:44 -0700
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{"username"=>"Gollum", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (0.6ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (3.4ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 8]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (0.4ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (0.6ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+Completed 200 OK in 32ms (Views: 0.1ms | ActiveRecord: 10.4ms | Allocations: 5310)
+
+
+Started POST "/users/login" for ::1 at 2020-08-18 10:19:04 -0700
+Processing by UsersController#login as */*
+  Parameters: {"user"=>{"username"=>"Madeline", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (17.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Madeline"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `login'
+Completed 200 OK in 324ms (Views: 0.3ms | ActiveRecord: 17.3ms | Allocations: 915)
+
+
+Started DELETE "/users/8" for ::1 at 2020-08-18 10:19:22 -0700
+Processing by UsersController#destroy as */*
+  Parameters: {"user"=>{"username"=>"Madeline", "password"=>"[FILTERED]"}, "id"=>"8"}
+  [1m[36mUser Load (4.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in `set_user'
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:51:in `destroy'
+  [1m[36mUser Destroy (2.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 8]]
+  ↳ app/controllers/users_controller.rb:51:in `destroy'
+  [1m[35m (41.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:51:in `destroy'
+Completed 204 No Content in 70ms (ActiveRecord: 50.9ms | Allocations: 3796)
+
+
+Started GET "/users" for ::1 at 2020-08-18 10:19:28 -0700
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{"username"=>"Madeline", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (4.9ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (0.4ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+  [1m[36mEntry Load (1.1ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:20:in `index'
+Completed 200 OK in 44ms (Views: 0.1ms | ActiveRecord: 9.9ms | Allocations: 4355)
+
+
+Started POST "/users/login" for ::1 at 2020-08-18 10:20:09 -0700
+Processing by UsersController#login as */*
+  Parameters: {"user"=>{"username"=>"Jennyyy", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (5.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Jennyyy"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `login'
+Completed 200 OK in 349ms (Views: 0.7ms | ActiveRecord: 5.1ms | Allocations: 915)
+
+
+Started GET "/users/5/entries" for ::1 at 2020-08-18 10:20:32 -0700
+Processing by EntriesController#index as */*
+  Parameters: {"user"=>{"username"=>"Jennyyy", "password"=>"[FILTERED]"}, "user_id"=>"5"}
+  [1m[36mEntry Load (3.8ms)[0m  [1m[34mSELECT "entries".* FROM "entries"[0m
+  ↳ app/controllers/entries_controller.rb:8:in `index'
+Completed 200 OK in 19ms (Views: 15.0ms | ActiveRecord: 3.8ms | Allocations: 1488)
+
+
+Started GET "/users/5" for ::1 at 2020-08-18 10:23:50 -0700
+Processing by UsersController#show as */*
+  Parameters: {"user"=>{"username"=>"Jennyyy", "password"=>"[FILTERED]"}, "id"=>"5"}
+  [1m[36mUser Load (4.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in `set_user'
+  [1m[36mUser Load (7.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[36mEntry Load (0.4ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:25:in `show'
+Completed 200 OK in 22ms (Views: 0.1ms | ActiveRecord: 12.3ms | Allocations: 4054)
+
+
+Started DELETE "/users/5/entries/5" for ::1 at 2020-08-18 10:24:13 -0700
+Processing by EntriesController#destroy as */*
+  Parameters: {"user"=>{"username"=>"Jennyyy", "password"=>"[FILTERED]"}, "user_id"=>"5", "id"=>"5"}
+  [1m[36mEntry Load (1.1ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:46:in `set_entry'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/entries_controller.rb:39:in `destroy'
+  [1m[36mEntry Destroy (0.9ms)[0m  [1m[31mDELETE FROM "entries" WHERE "entries"."id" = $1[0m  [["id", 5]]
+  ↳ app/controllers/entries_controller.rb:39:in `destroy'
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/entries_controller.rb:39:in `destroy'
+Completed 204 No Content in 10ms (ActiveRecord: 4.0ms | Allocations: 2420)
+
+
+Started GET "/users/5" for ::1 at 2020-08-18 10:24:18 -0700
+Processing by UsersController#show as */*
+  Parameters: {"user"=>{"username"=>"Jennyyy", "password"=>"[FILTERED]"}, "id"=>"5"}
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in `set_user'
+  [1m[36mUser Load (26.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `get_current_user'
+  [1m[36mEntry Load (2.5ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:25:in `show'
+Completed 200 OK in 42ms (Views: 0.2ms | ActiveRecord: 31.4ms | Allocations: 3907)
+
+
